@@ -2487,8 +2487,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 3122cf737b54ee1498d853114a1008ea, type: 3}
-    m_FontSize: 56
+    m_Font: {fileID: 12800000, guid: c31df22bbb275fa46a248ff9da560209, type: 3}
+    m_FontSize: 46
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -2497,7 +2497,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Tempo 00:00:00
 --- !u!222 &375528297
@@ -5748,54 +5748,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1212159625
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1212159627}
-  - component: {fileID: 1212159626}
-  m_Layer: 5
-  m_Name: ObjectDestroyer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1212159626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1212159625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f77e2b2cd5f486848a36d3955f434d2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &1212159627
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1212159625}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.57916665, y: 0.57916665, z: 0.57916665}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1070.9352, y: 540}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1224369728
 GameObject:
   m_ObjectHideFlags: 0
@@ -7607,8 +7559,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   completou: 0
   fimDeJogo: {fileID: 93321866}
-  player: {fileID: 0}
   imagemCompleta: {fileID: 846724480}
+  sceneInfo: {fileID: 0}
   voltaJogo: {fileID: 151816202}
 --- !u!114 &1667672389
 MonoBehaviour:
@@ -9325,4 +9277,3 @@ SceneRoots:
   - {fileID: 26560503}
   - {fileID: 1645389813}
   - {fileID: 846724482}
-  - {fileID: 1212159627}
