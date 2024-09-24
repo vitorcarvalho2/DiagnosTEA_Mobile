@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ee315b7f9117c4bb1badd29d741ea4, type: 3}
+  m_Name: "npcM\xE3e"
+  m_EditorClassIdentifier: 
+  name: "M\xE3e"
+  dialogue:
+  - Bom dia! Dormiu bem?
+  - "Voc\xEA precisa se arrumar para ir a escola!"
+  - Me ajude nessa tarefa e lhe entregarei sua mochila.
+  - Vamos jogar?
+  playerDialogue:
+  - Dormi bem!
+  - Vamos
+  - 

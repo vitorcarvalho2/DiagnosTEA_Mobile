@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/01_menu.unity
+    guid: 276fef3a2f284ef4299dcb4b9966c4e9
+  - enabled: 1
+    path: Assets/Scenes/LoadMenu.unity
+    guid: 51a709c4b850724419a483e426744fb1
+  - enabled: 1
+    path: Assets/Scenes/escolhaPersonagem02.unity
+    guid: 538bc782d76c47647990dd2491c3bfd5
+  - enabled: 1
+    path: Assets/Scenes/fase01.unity
+    guid: 52a121d98cc810f4ab417d69093d222c
+  - enabled: 1
+    path: Assets/Scenes/Jogo_da_Memoria.unity
+    guid: a08bc1f23397f4c48a52b83ba842890a
+  - enabled: 1
+    path: Assets/Scenes/Jogo_expressoes.unity
+    guid: d8e3430ee85312449beb34514c104e39
+  - enabled: 1
+    path: "Assets/Scenes/Quebra_Cabe\xE7a.unity"
+    guid: a345b1bc7d63562449878295b9e74376
+  m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
+      guid: 3d48fd332442d6f469d7521ecb921e53, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4f08a61b79e3aeb4aabf960621498a6e,
+      type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
+      guid: 0fe80f1d52e976049aa0f56b5f6c007d, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: c58e4b6cd8251b7498ed309febb96c14, type: 2}
