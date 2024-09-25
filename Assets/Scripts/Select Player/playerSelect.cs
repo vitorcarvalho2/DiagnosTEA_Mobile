@@ -68,7 +68,7 @@ public class playerSelect : MonoBehaviour
     void Select()
     {
         //declara posição inical do jogador no quarto e zera lista de objetos destruidos
-        sceneInfo.position = new Vector3(-7.67f, 3.44f, 1.66f);
+        sceneInfo.position = new Vector3(-7.67f, 3.44f, 0.5f);
         sceneInfo.destroyedObjects.Clear();
         sceneInfo.destroyedDialogs.Clear();
         sceneInfo.disabledImages.Clear();

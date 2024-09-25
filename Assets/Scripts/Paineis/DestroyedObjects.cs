@@ -16,8 +16,8 @@ public class DestroyedObjects : MonoBehaviour
         {
             if (GameObject.Find(sceneInfo.destroyedObjects[i]) != null && GameObject.Find(sceneInfo.destroyedDialogs[i]) != null)
             {
-                Destroy(GameObject.Find(sceneInfo.destroyedObjects[i]));
                 Destroy(GameObject.Find(sceneInfo.destroyedDialogs[i]));
+                Destroy(GameObject.Find(sceneInfo.destroyedObjects[i]));
             }
         }
         // for de UI images the objects were referenced because the Find method don't work properly in children nodes.

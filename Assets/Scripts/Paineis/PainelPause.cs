@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class PainelPause : MonoBehaviour
 {
-    public Button btg, home, pause;
+    public Button voltar, home;
     public GameObject painel;
 
 
     void Start()
     {
-        btg.onClick = new Button.ButtonClickedEvent();
+        voltar.onClick = new Button.ButtonClickedEvent();
         home.onClick = new Button.ButtonClickedEvent();
 
-        btg.onClick.AddListener(() => BackToGame());
+        voltar.onClick.AddListener(() => BackToGame());
         home.onClick.AddListener(() => Home());
     }
 

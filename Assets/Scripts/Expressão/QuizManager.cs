@@ -11,6 +11,7 @@ public class QuizManager : MonoBehaviour
     public List<QuestionsandAnwers> QnA;//lista de perguntas
     public GameObject[] options; // array de opções de resposta
     public Text QuestionTxt; // texto da pergunta
+    private float writingSpeed = 0.02f;
     public Text ScoreTxt; // texto de pontuação
     public GameObject QuizPanel,EndPanel; // painel principal e painel final
     public int CurrentQuestion; // pergunta atual
@@ -72,14 +73,24 @@ public class QuizManager : MonoBehaviour
         if (QnA.Count > 0)
         {
             CurrentQuestion = Random.Range(0, QnA.Count); // questao aleatoria
-            QuestionTxt.text = QnA[CurrentQuestion].Question;
-            SetAnswers();
-            AnswersScript answer = options[CurrentQuestion].GetComponent<AnswersScript>();
-            answer.StartAnswerTimer();
+            StartCoroutine(DisplayQuestion(QnA[CurrentQuestion].Question)); // escreve a pergunta letra a letra
+            SetAnswers(); // define as opções
+            AnswersScript answer = options[CurrentQuestion].GetComponent<AnswersScript>(); // pega o script das opções
+            answer.StartAnswerTimer(); // inicia o temporizador
         }
         else
         {
             FimDeJogo();
+        }
+    }
+
+    private IEnumerator DisplayQuestion(string question)
+    {
+        QuestionTxt.text = ""; // limpa o texto antes de começar a escrever
+        foreach (char letter in question) // itera por cada letra na pergunta
+        {
+            QuestionTxt.text += letter; // adiciona a letra ao texto
+            yield return new WaitForSeconds(writingSpeed); // espera um pouco antes de adicionar a próxima letra
         }
     }
 

@@ -2021,9 +2021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16efb8f943843d84e81b7b4698dec92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btg: {fileID: 313453062}
+  voltar: {fileID: 313453062}
   home: {fileID: 1765594563}
-  pause: {fileID: 1091189258}
   painel: {fileID: 308271421}
 --- !u!224 &308271423
 RectTransform:
@@ -7560,7 +7559,7 @@ MonoBehaviour:
   completou: 0
   fimDeJogo: {fileID: 93321866}
   imagemCompleta: {fileID: 846724480}
-  sceneInfo: {fileID: 0}
+  sceneInfo: {fileID: 11400000, guid: 9b27aca38ecc0ed4f9eced6b7cb55805, type: 2}
   voltaJogo: {fileID: 151816202}
 --- !u!114 &1667672389
 MonoBehaviour:

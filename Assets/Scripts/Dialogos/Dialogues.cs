@@ -7,16 +7,11 @@ public class Dialogues : MonoBehaviour
 {
 
     public GameObject window;
-    //public GameObject indicator;
-
     public TMP_Text dialogueText;
     public List<string> dialogues;
-
-    public float writingSpeed;
-
+    private float writingSpeed = 0.02f;
     private int index;
     private int charIndex;
-
     private bool started;
     private bool waitForNext;
 
@@ -30,10 +25,6 @@ public class Dialogues : MonoBehaviour
     {
         window.SetActive(show);
     }
-    /*public void ToggleIndicator(bool show)
-    {
-        indicator.SetActive(show);
-    }*/
 
     //Start Dialogue
     public void StartDialogue()

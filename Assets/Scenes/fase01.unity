@@ -18233,7 +18233,6 @@ MonoBehaviour:
   - Bom dia, vamos comer?
   - Me ajude a preparar seu lanche.
   - "Complete a pr\xF3xima atividade."
-  writingSpeed: 0.02
 --- !u!1001 &505819627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24596,7 +24595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &671113739
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27769,7 +27768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &761269240
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36433,7 +36432,6 @@ MonoBehaviour:
   - "Eai? J\xE1 pegou seu material?"
   - "S\xF3 falta isso para irmos para a escola."
   - "Complete a pr\xF3xima atividade e podemos ir."
-  writingSpeed: 0.02
 --- !u!1001 &957404340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53044,7 +53042,6 @@ MonoBehaviour:
   - "Vamos nos arrumar para ir \xE0 escola?"
   - "Ali est\xE1 sua mochila."
   - "Para peg\xE1-la, voc\xEA precisa completar a tarefa!"
-  writingSpeed: 0.02
 --- !u!1001 &1492917887
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80645,5 +80642,5 @@ SceneRoots:
   - {fileID: 501044737}
   - {fileID: 2064814613}
   - {fileID: 86654758}
-  - {fileID: 41619696}
   - {fileID: 1867243717}
+  - {fileID: 41619696}
