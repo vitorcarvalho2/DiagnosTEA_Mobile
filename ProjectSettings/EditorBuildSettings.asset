@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Quebra_Cabe\xE7a.unity"
     guid: a345b1bc7d63562449878295b9e74376
+  - enabled: 1
+    path: Assets/Scenes/Fim.unity
+    guid: e4948c137b9663840a24fab11b6fcf29
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
       guid: 3d48fd332442d6f469d7521ecb921e53, type: 2}

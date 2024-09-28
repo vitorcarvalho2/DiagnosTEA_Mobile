@@ -27772,7 +27772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &761269240
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50941,8 +50941,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneInfo: {fileID: 11400000, guid: 9b27aca38ecc0ed4f9eced6b7cb55805, type: 2}
-  painelItens: {fileID: 761269239}
-  fimFase1: {fileID: 0}
 --- !u!1001 &1427323826
 PrefabInstance:
   m_ObjectHideFlags: 0
