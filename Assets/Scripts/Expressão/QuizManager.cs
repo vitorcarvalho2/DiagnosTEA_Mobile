@@ -10,13 +10,15 @@ public class QuizManager : MonoBehaviour
 {
     public List<QuestionsandAnwers> QnA;//lista de perguntas
     public GameObject[] options; // array de opções de resposta
-    public Text QuestionTxt; // texto da pergunta
-    private float writingSpeed = 0.02f;
-    public Text ScoreTxt; // texto de pontuação
-    public GameObject QuizPanel,EndPanel; // painel principal e painel final
+    public TextMeshProUGUI QuestionTxt; // texto da pergunta
+    private float writingSpeed = 0.05f;
+    public TextMeshProUGUI ScoreTxt; // texto de pontuação
+    public GameObject QuizPanel, EndPanel; // painel principal e painel final
     public int CurrentQuestion; // pergunta atual
     int TotalQuestion = 0; // quantidade de perguntas
     public int Score = 0; // pontuação
+    private Coroutine displayCoroutine; // Armazena o Coroutine da pergunta atual
+
 
     [SerializeField]
     public SceneInfo sceneInfo;
@@ -27,16 +29,11 @@ public class QuizManager : MonoBehaviour
     {
         voltaJogo.onClick = new Button.ButtonClickedEvent();
         voltaJogo.onClick.AddListener(() => VoltaJogo());
+
         TotalQuestion = QnA.Count; // coloca a quantidade de perguntas
         GenerateQuestion(); // gera a primeira pergunta aleatoria
     }
 
-    void FimDeJogo()
-    {   
-        QuizPanel.SetActive(false);
-        //adicionar tempo padronizado
-        StartCoroutine(PainelFimDeJogo());
-    }
 
 
     public void Correct()
@@ -53,6 +50,25 @@ public class QuizManager : MonoBehaviour
         GenerateQuestion();
         AnswersScript answer = options[CurrentQuestion].GetComponent<AnswersScript>();
     }
+    void GenerateQuestion()
+    {
+        if (QnA.Count > 0)
+        {
+            CurrentQuestion = Random.Range(0, QnA.Count); // questao aleatoria
+            if (displayCoroutine != null)
+            {
+                StopCoroutine(displayCoroutine);
+            }
+            displayCoroutine = StartCoroutine(DisplayQuestion(QnA[CurrentQuestion].Question)); // escreve a pergunta letra a letra
+            SetAnswers(); // define as opções
+            AnswersScript answer = options[CurrentQuestion].GetComponent<AnswersScript>(); // pega o script das opções
+            answer.StartAnswerTimer(); // inicia o temporizador
+        }
+        else
+        {
+            FimDeJogo();
+        }
+    }
 
     void SetAnswers()
     {
@@ -68,30 +84,17 @@ public class QuizManager : MonoBehaviour
         }
     }
 
-    void GenerateQuestion()
-    {
-        if (QnA.Count > 0)
-        {
-            CurrentQuestion = Random.Range(0, QnA.Count); // questao aleatoria
-            StartCoroutine(DisplayQuestion(QnA[CurrentQuestion].Question)); // escreve a pergunta letra a letra
-            SetAnswers(); // define as opções
-            AnswersScript answer = options[CurrentQuestion].GetComponent<AnswersScript>(); // pega o script das opções
-            answer.StartAnswerTimer(); // inicia o temporizador
-        }
-        else
-        {
-            FimDeJogo();
-        }
-    }
 
     private IEnumerator DisplayQuestion(string question)
     {
         QuestionTxt.text = ""; // limpa o texto antes de começar a escrever
+
         foreach (char letter in question) // itera por cada letra na pergunta
         {
             QuestionTxt.text += letter; // adiciona a letra ao texto
             yield return new WaitForSeconds(writingSpeed); // espera um pouco antes de adicionar a próxima letra
         }
+        displayCoroutine = null;
     }
 
     void VoltaJogo()
@@ -99,10 +102,17 @@ public class QuizManager : MonoBehaviour
         SceneManager.LoadScene("fase01");
     }
 
+    void FimDeJogo()
+    {
+        QuizPanel.SetActive(false);
+        //adicionar tempo padronizado
+        StartCoroutine(PainelFimDeJogo());
+    }
+
     private IEnumerator PainelFimDeJogo()
     {
         yield return new WaitForSeconds(1.5f);
-        ScoreTxt.text = $"Você acertou {Score}/{TotalQuestion} perguntas!";
+        ScoreTxt.text = $"Acertos {Score}/{TotalQuestion}";
         EndPanel.SetActive(true);
     }
 }

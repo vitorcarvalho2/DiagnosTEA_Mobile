@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffcc7a5159b0f2b48a4b83f66ffb4433, type: 3}
   m_Name: SceneInfo
   m_EditorClassIdentifier: 
-  position: {x: -3.3, y: 2, z: 0.5}
-  playerName: Personagens/homem02
+  position: {x: -7.6, y: 3.44, z: 0.5}
+  playerName: Personagens/mulher03
   destroyedObjects: []
   destroyedDialogs: []
   disabledImages: []
