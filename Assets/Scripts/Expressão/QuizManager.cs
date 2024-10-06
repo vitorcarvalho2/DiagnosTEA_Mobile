@@ -19,21 +19,35 @@ public class QuizManager : MonoBehaviour
     public int Score = 0; // pontuação
     private Coroutine displayCoroutine; // Armazena o Coroutine da pergunta atual
 
-
     [SerializeField]
     public SceneInfo sceneInfo;
 
     public Button voltaJogo;
 
+    public TextMeshProUGUI tempo;
+    float elapsedTime;
+    public bool tempoBool = false;
+
     private void Start()//inicia o jogo deixando o painel principal visivel e os outros nao
     {
         voltaJogo.onClick = new Button.ButtonClickedEvent();
         voltaJogo.onClick.AddListener(() => VoltaJogo());
-
+        elapsedTime = 0f;
+        tempoBool = true;
         TotalQuestion = QnA.Count; // coloca a quantidade de perguntas
         GenerateQuestion(); // gera a primeira pergunta aleatoria
     }
 
+    void Update()
+    {
+        if (tempoBool)
+        {
+            elapsedTime += Time.deltaTime;
+            int min = Mathf.FloorToInt(elapsedTime / 60);
+            int sec = Mathf.FloorToInt(elapsedTime % 60);
+            tempo.text = string.Format("Text: {0:00}:{1:00}", min, sec);
+        }
+    }
 
 
     public void Correct()
@@ -53,7 +67,7 @@ public class QuizManager : MonoBehaviour
     void GenerateQuestion()
     {
         if (QnA.Count > 0)
-        {
+        {   
             CurrentQuestion = Random.Range(0, QnA.Count); // questao aleatoria
             if (displayCoroutine != null)
             {
@@ -62,7 +76,6 @@ public class QuizManager : MonoBehaviour
             displayCoroutine = StartCoroutine(DisplayQuestion(QnA[CurrentQuestion].Question)); // escreve a pergunta letra a letra
             SetAnswers(); // define as opções
             AnswersScript answer = options[CurrentQuestion].GetComponent<AnswersScript>(); // pega o script das opções
-            answer.StartAnswerTimer(); // inicia o temporizador
         }
         else
         {
@@ -105,14 +118,17 @@ public class QuizManager : MonoBehaviour
     void FimDeJogo()
     {
         QuizPanel.SetActive(false);
-        //adicionar tempo padronizado
+        tempoBool = false;
         StartCoroutine(PainelFimDeJogo());
     }
 
     private IEnumerator PainelFimDeJogo()
     {
         yield return new WaitForSeconds(1.5f);
-        ScoreTxt.text = $"Acertos {Score}/{TotalQuestion}";
+
+        ScoreTxt.text = $"Acertos: {Score}/{TotalQuestion}";
+        sceneInfo.tempoQuiz = tempo.text;
+        sceneInfo.acertosQuiz = ScoreTxt.text;
         EndPanel.SetActive(true);
     }
 }

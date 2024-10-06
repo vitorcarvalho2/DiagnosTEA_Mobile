@@ -69,9 +69,7 @@ public class playerSelect : MonoBehaviour
     {
         //declara posição inical do jogador no quarto e zera lista de objetos destruidos
         sceneInfo.position = new Vector3(-7.67f, 3.44f, 0.5f);
-        sceneInfo.destroyedObjects.Clear();
-        sceneInfo.destroyedDialogs.Clear();
-        sceneInfo.disabledImages.Clear();
+        sceneInfo.Limpar();
         PlayerPrefs.SetString("charName", player.name);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

@@ -8,8 +8,9 @@ public class PainelPause : MonoBehaviour
 {
     public Button voltar, home;
     public GameObject painel;
-
-
+    private ChecarFimQC checarFimQC;
+    private GameController gameController;
+    private QuizManager quizManager;
     void Start()
     {
         voltar.onClick = new Button.ButtonClickedEvent();
@@ -17,14 +18,50 @@ public class PainelPause : MonoBehaviour
 
         voltar.onClick.AddListener(() => BackToGame());
         home.onClick.AddListener(() => Home());
+
+        checarFimQC = FindObjectOfType<ChecarFimQC>();
+        gameController = FindObjectOfType<GameController>();
+        quizManager = FindObjectOfType<QuizManager>();
+
+        Pause();
+
     }
 
-    public void Home (){
+    void Pause()
+    {
+        if (checarFimQC != null)
+        {
+            checarFimQC.tempoBool = false;
+        }
+        if (gameController != null)
+        {
+            gameController.tempoBool = false;
+        }
+        if (quizManager != null)
+        {
+            quizManager.tempoBool = false;
+        }
+    }
+
+    public void Home()
+    {
         SceneManager.LoadScene("01_menu");
     }
 
-    public void BackToGame (){
+    public void BackToGame()
+    {
+        if (checarFimQC != null)
+        {
+            checarFimQC.tempoBool = true;
+        }
+        if (gameController != null)
+        {
+            gameController.tempoBool = true;
+        }
+        if (quizManager != null)
+        {
+            quizManager.tempoBool = true;
+        }
         painel.SetActive(false);
-        Tempo.instanciar.ContinuarTempo();
     }
 }

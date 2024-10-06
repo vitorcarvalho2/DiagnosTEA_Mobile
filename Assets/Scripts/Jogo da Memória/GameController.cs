@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
-
+using Unity.VisualScripting.Antlr3.Runtime;
 public class GameController : MonoBehaviour, IDataPersistence
 {
     // pariaveis do painel 
     public GameObject fimDeJogo, pausePainel;
-    public Text movimentos, movimentosFinal,tempoTexto, tempoFinal;
+    public Text movimentos, movimentosFinal;
     private int qtdMovimento;
 
     [SerializeField]
@@ -37,6 +36,9 @@ public class GameController : MonoBehaviour, IDataPersistence
     private string firstGuessPuzzle, secondGuessPuzzle;
 
     public Button voltaJogo;
+    public Text tempoTexto;
+    float elapsedTime;
+    public bool tempoBool = false;
 
     void Awake()
     {
@@ -52,11 +54,23 @@ public class GameController : MonoBehaviour, IDataPersistence
         gameGuesses = gamePuzzles.Count / 2;
 
         movimentos.text = "Movimentos:  " + qtdMovimento;
-        
-        Tempo.instanciar.IniciarTempo();
 
         voltaJogo.onClick = new Button.ButtonClickedEvent();
         voltaJogo.onClick.AddListener(() => VoltaJogo());
+        elapsedTime = 0f;
+        tempoBool = true;
+
+    }
+
+    void Update()
+    {
+        if (tempoBool)
+        {
+            elapsedTime += Time.deltaTime;
+            int min = Mathf.FloorToInt(elapsedTime / 60);
+            int sec = Mathf.FloorToInt(elapsedTime % 60);
+            tempoTexto.text = string.Format("Tempo: {0:00}:{1:00}", min, sec);           
+        }
 
     }
 
@@ -68,7 +82,7 @@ public class GameController : MonoBehaviour, IDataPersistence
         {
             Button btn = objects[i].GetComponent<Button>(); //atribui o botão ao botão
             btns.Add(btn); //adiciona o botão na lista
-            
+
             int index = i;  // Captura o índice correto do botão
             btns[i].onClick.AddListener(() => PickPuzzle(index)); // Passa o índice para PickPuzzle 
             btn.image.sprite = bgImage;
@@ -152,9 +166,12 @@ public class GameController : MonoBehaviour, IDataPersistence
         countCorrectGuesses++;
 
         if (countCorrectGuesses == gameGuesses)
-        {
-            Tempo.instanciar.FimTempo();
+        {   
+            tempoBool = false;
+            sceneInfo.tempoMemo = tempoTexto.text;
+            
             movimentosFinal.text = "Movimentos: " + (qtdMovimento + 1);
+            sceneInfo.movimentos = movimentosFinal.text;
             fimDeJogo.SetActive(true);
 
         }
@@ -179,12 +196,12 @@ public class GameController : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         //this.qtdMovimento = qtdMovimento;
-        
+
     }
 
     public void SaveData(ref GameData data)
     {
         data.movimentos_Memoria = this.qtdMovimento;
-       
+
     }
 }

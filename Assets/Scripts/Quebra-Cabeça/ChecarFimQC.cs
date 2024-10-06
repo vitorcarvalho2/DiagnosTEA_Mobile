@@ -9,7 +9,7 @@ public class ChecarFimQC : MonoBehaviour
     float cronometro;
 
     public GameObject fimDeJogo, imagemCompleta;
-    
+
     [SerializeField]
     public SceneInfo sceneInfo;
 
@@ -17,8 +17,14 @@ public class ChecarFimQC : MonoBehaviour
 
     ControllerPuzzle[] objetos;
 
+    public Text tempo;
+    float elapsedTime;
+    public bool tempoBool = false;
+
     void Start()
     {
+        elapsedTime = 0f;
+        tempoBool = true;
         cronometro = 0;
         completou = false;
         objetos = FindObjectsOfType<ControllerPuzzle>();
@@ -28,6 +34,13 @@ public class ChecarFimQC : MonoBehaviour
 
     void Update()
     {
+        if (tempoBool)
+        {
+            elapsedTime += Time.deltaTime;
+            int min = Mathf.FloorToInt(elapsedTime / 60);
+            int sec = Mathf.FloorToInt(elapsedTime % 60);
+            tempo.text = string.Format("Tempo: {0:00}:{1:00}", min, sec);
+        }
         cronometro += Time.deltaTime;
         if (cronometro >= 0.2f)
         {
@@ -50,7 +63,6 @@ public class ChecarFimQC : MonoBehaviour
 
     void FimDeJogo()
     {
-        Tempo.instanciar.FimTempo();
         imagemCompleta.SetActive(true);
         StartCoroutine(PainelFimDeJogo());
     }
@@ -63,7 +75,9 @@ public class ChecarFimQC : MonoBehaviour
     private IEnumerator PainelFimDeJogo()
     {
         yield return new WaitForSeconds(2);
+        tempoBool = false; 
         fimDeJogo.SetActive(true);
+        sceneInfo.tempoQC = tempo.text;
     }
 
 }

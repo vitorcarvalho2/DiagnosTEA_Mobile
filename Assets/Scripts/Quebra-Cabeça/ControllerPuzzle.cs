@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +10,7 @@ public class ControllerPuzzle : MonoBehaviour
     Vector3 vetorDirecao;
 
     Rigidbody2D _rigidbody2d;
-    
+
     bool arrastando;
     float distancia;
 
@@ -24,6 +23,7 @@ public class ControllerPuzzle : MonoBehaviour
     public float velocidadeDeMovimento = 10;
 
     public Transform conector;
+
     [Range(0.1f, 2.0f)]
     public float distanciaMinimaConector = 0.5f;
 
@@ -31,43 +31,50 @@ public class ControllerPuzzle : MonoBehaviour
     {
         _rigidbody2d = transform.root.GetComponent<Rigidbody2D>();
         _rigidbody2d.gravityScale = 1;
-
-        Tempo.instanciar.IniciarTempo();
     }
-    
-    private void OnMouseDown() {
+
+    private void OnMouseDown()
+    {
         posicaoInicial = transform.root.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _rigidbody2d.gravityScale = 0;
         arrastando = true;
-    } 
+        conectada = false;
 
-    private void OnMouseDrag() {
+    }
+
+    private void OnMouseDrag()
+    {
         posicaoDestino = posicaoInicial + Camera.main.ScreenToWorldPoint(Input.mousePosition);
         vetorDirecao = posicaoDestino - transform.root.position;
         _rigidbody2d.velocity = vetorDirecao * velocidadeDeMovimento;
     }
 
-    private void OnMouseUp() {
+    private void OnMouseUp()
+    {
         _rigidbody2d.gravityScale = 1;
         arrastando = false;
-    } 
+    }
 
     private void FixedUpdate()
     {
-        
-        if(!arrastando && !conectada){
+
+        if (!arrastando && !conectada)
+        {
             distancia = Vector2.Distance(transform.root.position, conector.position);
-            if(distancia < distanciaMinimaConector){
-            _rigidbody2d.gravityScale = 0;
-            _rigidbody2d.velocity = Vector2.zero;
-            transform.root.position = Vector2.MoveTowards(transform.root.position,conector.position, 0.02f);
+            if (distancia < distanciaMinimaConector)
+            {
+                _rigidbody2d.gravityScale = 0;
+                _rigidbody2d.velocity = Vector2.zero;
+                transform.root.position = Vector2.MoveTowards(transform.root.position, conector.position, 0.02f);
             }
-            if(distancia < 0.01f){
+            if (distancia < 0.01f)
+            {
                 conectada = true;
                 transform.root.position = conector.position;
+                GetComponent<Collider2D>().enabled = false;
                 _rigidbody2d.isKinematic = true;
             }
         }
-        
+
     }
 }
