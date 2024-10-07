@@ -76,7 +76,7 @@ public class playerSelect : MonoBehaviour
 
     public void Home()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        Application.Quit();
+        SceneManager.LoadScene("01_Menu");
+        
     }
 }

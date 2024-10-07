@@ -17,8 +17,8 @@ MonoBehaviour:
   destroyedObjects: []
   destroyedDialogs: []
   disabledImages: []
-  tempoQC: ssdkasndja
-  tempoMemo: dasmdnaskdnas
-  movimentos: dandknasdjn
-  tempoQuiz: sndkasndknakdn
-  acertosQuiz: kdkmaskdmaskdk
+  tempoQC: 'Tempo : 01:34'
+  tempoMemo: 'Tempo: 00:56'
+  movimentos: 'Movimentos: 12'
+  tempoQuiz: 'Tempo: 02:00'
+  acertosQuiz: 'Acertos: 6/6'
