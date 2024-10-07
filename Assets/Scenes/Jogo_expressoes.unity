@@ -2810,7 +2810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   QnA:
   - Question: "Gabriel ganhou um presente de anivers\xE1rio que ela queria muito:
-      um patins novo! Como voc\xEA acha que Ana se sentiu ao abrir o presente?"
+      um patins novo! Como voc\xEA acha que ele se sentiu ao abrir o presente?"
     Answers:
     - TRISTE
     - ALEGRE

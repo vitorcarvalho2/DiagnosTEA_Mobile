@@ -12179,7 +12179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Para pegar seu lanche,\nvamos jogar um quebra-cabe\xE7a?"
+  m_text: "Para pegar a mochila,\nvamos jogar o jogo da mem\xF3ria?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -36123,7 +36123,7 @@ MonoBehaviour:
   dialogueText: {fileID: 679797363}
   dialogues:
   - "Eai? J\xE1 pegou seu material?"
-  - "S\xF3 falta isso para irmos para a escola."
+  - "Voc\xEA precisa disso para irmos para a escola."
   - "Complete a pr\xF3xima atividade e podemos ir."
 --- !u!1001 &957404340
 PrefabInstance:
@@ -44237,7 +44237,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Para pegar a mochila,\nvamos jogar o jogo da mem\xF3ria?"
+  m_text: "Para pegar seu lanche,\nvamos jogar um quebra-cabe\xE7a?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}

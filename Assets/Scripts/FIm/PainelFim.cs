@@ -1,28 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PainelFim : MonoBehaviour
 {
-    public Button exit, home;
+    public Button exit, home, dados;
+    public GameObject painelItens, painelDados;
+    public Text btDadosTexto;
+    public Text info;
+    public SceneInfo sceneInfo;
+
     void Start()
     {
         exit.onClick = new Button.ButtonClickedEvent();
         home.onClick = new Button.ButtonClickedEvent();
-
+        dados.onClick = new Button.ButtonClickedEvent();
         exit.onClick.AddListener(() => Exit());
         home.onClick.AddListener(() => Home());
+        dados.onClick.AddListener(() => Dados());
+        Info();
     }
 
     void Exit()
     {
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false; // Para parar o jogo no editor
+        UnityEditor.EditorApplication.isPlaying = false;
 #else
-        Application.Quit(); // Para encerrar a build do jogo
+        Application.Quit(); 
 #endif
+    }
+
+    void Info()
+{   
+    string aux = "Jogo da Memoria: \n\t" + sceneInfo.tempoMemo + " \n\t" + sceneInfo.movimentos + " \n"
+    + "Quebra-Cabeça: \n\t" + sceneInfo.tempoQC + "\n"
+    + "Quiz: \n\t" + sceneInfo.acertosQuiz + " \n\t" + sceneInfo.tempoQuiz;
+    info.text = aux;
+}
+
+
+    void Dados()
+    {
+        if (painelItens.activeSelf)
+        {
+            painelItens.SetActive(false);
+            painelDados.SetActive(true);
+            btDadosTexto.text = "Itens";
+        }
+        else if (painelDados.activeSelf)
+        {
+            painelItens.SetActive(true);
+            painelDados.SetActive(false);
+            btDadosTexto.text = "Estatisticas";
+        }
     }
 
     void Home()
