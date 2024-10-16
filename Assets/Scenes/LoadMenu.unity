@@ -1480,6 +1480,7 @@ MonoBehaviour:
   load02: {fileID: 647193633}
   load03: {fileID: 1366205098}
   load04: {fileID: 931951452}
+  home: {fileID: 598919499}
 --- !u!1 &1635331729
 GameObject:
   m_ObjectHideFlags: 0
