@@ -19,7 +19,7 @@ public class SceneInfo : ScriptableObject
     //list of inventory itens
     public List<string> disabledImages = new List<string>();
 
-    public string tempoQC, tempoMemo, movimentos, tempoQuiz, acertosQuiz;
+    public string tempoQC, tempoMemo, movimentos, tempoQuiz, acertosQuiz, tempoPersonagens;
 
     public void Limpar()
     {
@@ -31,5 +31,6 @@ public class SceneInfo : ScriptableObject
         movimentos = "";
         tempoQuiz = "";
         acertosQuiz = "";
+        tempoPersonagens = "";
     }
 }

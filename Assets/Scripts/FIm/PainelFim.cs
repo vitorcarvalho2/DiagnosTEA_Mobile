@@ -35,9 +35,9 @@ public class PainelFim : MonoBehaviour
 
     void Info()
 {   
-    string aux = "Jogo da Memoria: \n\t" + sceneInfo.tempoMemo + " \n\t" + sceneInfo.movimentos + " \n"
-    + "Quebra-Cabeça: \n\t" + sceneInfo.tempoQC + "\n"
-    + "Quiz: \n\t" + sceneInfo.acertosQuiz + " \n\t" + sceneInfo.tempoQuiz;
+    string aux = "Jogo da Memoria: \n" + sceneInfo.tempoMemo + " \n" + sceneInfo.movimentos + " \n"
+    + "Quebra-Cabeça: \n" + sceneInfo.tempoQC + "\n"
+    + "Quiz: \n" + sceneInfo.acertosQuiz + " \n" + sceneInfo.tempoQuiz + " \n" + "Personagens: \n" + sceneInfo.tempoPersonagens;
     info.text = aux;
 }
 

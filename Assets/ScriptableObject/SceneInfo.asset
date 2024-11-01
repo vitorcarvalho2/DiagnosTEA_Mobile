@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffcc7a5159b0f2b48a4b83f66ffb4433, type: 3}
   m_Name: SceneInfo
   m_EditorClassIdentifier: 
-  position: {x: -7.6, y: 3.44, z: 0.5}
-  playerName: Personagens/mulher03
+  position: {x: -7.67, y: 3.44, z: 0.5}
+  playerName: Personagens/mulher01
   destroyedObjects: []
   destroyedDialogs: []
   disabledImages: []
-  tempoQC: 'Tempo : 01:34'
-  tempoMemo: 'Tempo: 00:56'
-  movimentos: 'Movimentos: 12'
-  tempoQuiz: 'Tempo: 02:00'
-  acertosQuiz: 'Acertos: 6/6'
+  tempoQC: 'Tempo: 00:14'
+  tempoMemo: 'Tempo: 00:14'
+  movimentos: 'Movimentos: 03'
+  tempoQuiz: 'Tempo: 00:14'
+  acertosQuiz: 'Acertos: 5/6'
+  tempoPersonagens: 'Tempo: 00:14'
