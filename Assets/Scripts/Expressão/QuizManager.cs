@@ -11,14 +11,9 @@ public class QuizManager : MonoBehaviour
     public List<QuestionsandAnwers> QnA;//lista de perguntas
     public GameObject[] options; // array de opções de resposta
     public TextMeshProUGUI QuestionTxt; // texto da pergunta
-    private float writingSpeed = 0.05f;
-    public TextMeshProUGUI ScoreTxt; // texto de pontuação
     public GameObject QuizPanel, EndPanel; // painel principal e painel final
-    public int CurrentQuestion; // pergunta atual
-    int TotalQuestion = 0; // quantidade de perguntas
-    public int Score = 0; // pontuação
-    private Coroutine displayCoroutine; // Armazena o Coroutine da pergunta atual
-
+    public int currentQuestion; // pergunta atual
+    int totalQuestion = 0; // quantidade de perguntas
     [SerializeField]
     public SceneInfo sceneInfo;
 
@@ -28,14 +23,14 @@ public class QuizManager : MonoBehaviour
     float elapsedTime;
     public bool tempoBool = false;
 
-    private void Start()//inicia o jogo deixando o painel principal visivel e os outros nao
+    private void Start()
     {
         voltaJogo.onClick = new Button.ButtonClickedEvent();
         voltaJogo.onClick.AddListener(() => VoltaJogo());
         elapsedTime = 0f;
         tempoBool = true;
-        TotalQuestion = QnA.Count; // coloca a quantidade de perguntas
-        GenerateQuestion(); // gera a primeira pergunta aleatoria
+        totalQuestion = QnA.Count; // coloca a quantidade de perguntas
+        GenerateQuestion();
     }
 
     void Update()
@@ -45,70 +40,63 @@ public class QuizManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
             int min = Mathf.FloorToInt(elapsedTime / 60);
             int sec = Mathf.FloorToInt(elapsedTime % 60);
-            tempo.text = string.Format("Text: {0:00}:{1:00}", min, sec);
+            tempo.text = string.Format("Tempo: {0:00}:{1:00}", min, sec);
         }
     }
 
-
-    public void Correct()
-    {
-        Score += 1;
-        QnA.RemoveAt(CurrentQuestion);
+    public void NextQuestion()
+    {   
+        QnA.RemoveAt(currentQuestion);
         GenerateQuestion();
-        AnswersScript answer = options[CurrentQuestion].GetComponent<AnswersScript>();
+        AnswersScript answer = options[currentQuestion].GetComponent<AnswersScript>();
     }
 
-    public void Wrong()
+    public void StoreAnswer(string answer)
     {
-        QnA.RemoveAt(CurrentQuestion);
-        GenerateQuestion();
-        AnswersScript answer = options[CurrentQuestion].GetComponent<AnswersScript>();
+        sceneInfo.respostasQuiz.Add(answer);
     }
+
+    // public void Correct()
+    // {
+    //     Score += 1;
+    //     QnA.RemoveAt(currentQuestion);
+    //     GenerateQuestion();
+    //     AnswersScript answer = options[currentQuestion].GetComponent<AnswersScript>();
+    // }
+
+    // public void Wrong()
+    // {
+    //     QnA.RemoveAt(currentQuestion);
+    //     GenerateQuestion();
+    //     AnswersScript answer = options[currentQuestion].GetComponent<AnswersScript>();
+    // }
     void GenerateQuestion()
-    {
-        if (QnA.Count > 0)
-        {   
-            CurrentQuestion = Random.Range(0, QnA.Count); // questao aleatoria
-            if (displayCoroutine != null)
-            {
-                StopCoroutine(displayCoroutine);
-            }
-            displayCoroutine = StartCoroutine(DisplayQuestion(QnA[CurrentQuestion].Question)); // escreve a pergunta letra a letra
-            SetAnswers(); // define as opções
-            AnswersScript answer = options[CurrentQuestion].GetComponent<AnswersScript>(); // pega o script das opções
-        }
-        else
-        {
-            FimDeJogo();
-        }
+{
+    if (QnA.Count > 0)
+    {   
+        QuestionTxt.text = QnA[currentQuestion].Question;
+        SetAnswers(); // define as opções
+        AnswersScript answer = options[currentQuestion].GetComponent<AnswersScript>(); // pega o script das opções
     }
+    else
+    {
+        FimDeJogo();
+    }
+}
 
     void SetAnswers()
     {
         for (int i = 0; i < options.Length; i++)
         {
-            options[i].GetComponent<AnswersScript>().IsCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[CurrentQuestion].Answers[i];
+            //options[i].GetComponent<AnswersScript>().IsCorrect = false;
+            options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[currentQuestion].Answers[i];
 
-            if (QnA[CurrentQuestion].CorrectAnswer == i + 1)
-            {
-                options[i].GetComponent<AnswersScript>().IsCorrect = true;
-            }
+            //if (QnA[currentQuestion].CorrectAnswer == i + 1){
+                //options[i].GetComponent<AnswersScript>().IsCorrect = true;
+            //}
         }
     }
 
-
-    private IEnumerator DisplayQuestion(string question)
-    {
-        QuestionTxt.text = ""; // limpa o texto antes de começar a escrever
-
-        foreach (char letter in question) // itera por cada letra na pergunta
-        {
-            QuestionTxt.text += letter; // adiciona a letra ao texto
-            yield return new WaitForSeconds(writingSpeed); // espera um pouco antes de adicionar a próxima letra
-        }
-        displayCoroutine = null;
-    }
 
     void VoltaJogo()
     {
@@ -125,10 +113,7 @@ public class QuizManager : MonoBehaviour
     private IEnumerator PainelFimDeJogo()
     {
         yield return new WaitForSeconds(1.5f);
-
-        ScoreTxt.text = $"Acertos: {Score}/{TotalQuestion}";
         sceneInfo.tempoQuiz = tempo.text;
-        sceneInfo.acertosQuiz = ScoreTxt.text;
         EndPanel.SetActive(true);
     }
 }

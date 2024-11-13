@@ -19,18 +19,20 @@ public class SceneInfo : ScriptableObject
     //list of inventory itens
     public List<string> disabledImages = new List<string>();
 
-    public string tempoQC, tempoMemo, movimentos, tempoQuiz, acertosQuiz, tempoPersonagens;
+    public List<string> respostasQuiz = new List<string>();
+
+    public string tempoQC, tempoMemo, movimentos, tempoQuiz, tempoPersonagens;
 
     public void Limpar()
     {
         destroyedObjects.Clear();
         destroyedDialogs.Clear();
         disabledImages.Clear();
+        respostasQuiz.Clear();
         tempoQC = "";
         tempoMemo = "";
         movimentos = "";
         tempoQuiz = "";
-        acertosQuiz = "";
         tempoPersonagens = "";
     }
 }

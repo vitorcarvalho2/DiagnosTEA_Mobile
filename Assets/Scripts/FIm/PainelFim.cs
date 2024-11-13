@@ -33,11 +33,17 @@ public class PainelFim : MonoBehaviour
 #endif
     }
 
-    void Info()
+void Info()
 {   
-    string aux = "Jogo da Memoria: \n" + sceneInfo.tempoMemo + " \n" + sceneInfo.movimentos + " \n"
-    + "Quebra-Cabeça: \n" + sceneInfo.tempoQC + "\n"
-    + "Quiz: \n" + sceneInfo.acertosQuiz + " \n" + sceneInfo.tempoQuiz + " \n" + "Personagens: \n" + sceneInfo.tempoPersonagens;
+    // Converte a lista de respostas  do quiz em uma string, separada por vírgulas
+    string respostasQuizString = string.Join(", ", sceneInfo.respostasQuiz);
+    
+    // Monta a string final, incluindo as respostas formatadas
+    string aux = "<b>Jogo da Memoria</b>\n" + sceneInfo.tempoMemo + " \n" + sceneInfo.movimentos + " \n"
+        + "<b>Quebra Cabeça</b>\n" + sceneInfo.tempoQC + "\n"
+        + "<b>Quiz</b>\n" + sceneInfo.tempoQuiz + " \n" 
+        + "Respostas: \n" + respostasQuizString + " \n" 
+        + "<b>Personagens:</b>\n" + sceneInfo.tempoPersonagens;
     info.text = aux;
 }
 
