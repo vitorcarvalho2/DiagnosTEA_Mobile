@@ -21046,7 +21046,7 @@ MonoBehaviour:
   dados: {fileID: 766550691}
   painelItens: {fileID: 984664181}
   painelDados: {fileID: 797527099}
-  btDadosTexto: {fileID: 0}
+  btDadosTexto: {fileID: 1468905309}
   info: {fileID: 69905485}
   sceneInfo: {fileID: 11400000, guid: 9b27aca38ecc0ed4f9eced6b7cb55805, type: 2}
 --- !u!4 &1650618740

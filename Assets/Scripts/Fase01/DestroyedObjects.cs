@@ -8,10 +8,16 @@ public class DestroyedObjects : MonoBehaviour
     [SerializeField]
     public SceneInfo sceneInfo;
     public Image MochilaOff, LivroOff, LancheOff;
-
+    [SerializeField] private GameObject audioManager,mixerManager;
     //no começo da cena fase 1 são verificadas as listas de objetos a serem destruidas 
     void Start()
-    {
+    {   
+       
+        if (AudioManager.instance == null)
+        {
+            Instantiate(audioManager);
+            Instantiate(mixerManager);
+        }
         for (int i = 0; i < sceneInfo.destroyedObjects.Count; i++)
         {
             if (GameObject.Find(sceneInfo.destroyedObjects[i]) != null && GameObject.Find(sceneInfo.destroyedDialogs[i]) != null)

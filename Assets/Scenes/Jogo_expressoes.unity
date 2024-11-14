@@ -2717,6 +2717,12 @@ MonoBehaviour:
     - ALEGRE
     - MEDO
     - DUVIDA
+  - Question: Voce bateu em seu amigo, como acha que ele se sentiu?
+    Answers:
+    - TRISTE
+    - ALEGRE
+    - MEDO
+    - DUVIDA
   options:
   - {fileID: 1297251978}
   - {fileID: 805518052}

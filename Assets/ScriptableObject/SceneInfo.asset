@@ -17,9 +17,15 @@ MonoBehaviour:
   destroyedObjects: []
   destroyedDialogs: []
   disabledImages: []
-  tempoQC: 'Tempo: 00:14'
-  tempoMemo: 'Tempo: 00:14'
-  movimentos: 'Movimentos: 03'
-  tempoQuiz: 'Tempo: 00:14'
-  acertosQuiz: 'Acertos: 5/6'
-  tempoPersonagens: 'Tempo: 00:14'
+  respostasQuiz:
+  - a
+  - a
+  - a
+  - a
+  - a
+  - a
+  tempoQC: aaa
+  tempoMemo: aaa
+  movimentos: aaa
+  tempoQuiz: aaa
+  tempoPersonagens: aaa

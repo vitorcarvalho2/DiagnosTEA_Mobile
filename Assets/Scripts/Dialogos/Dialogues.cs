@@ -15,6 +15,7 @@ public class Dialogues : MonoBehaviour
     private bool started;
     private bool waitForNext;
 
+    [SerializeField] private AudioClip[] dialogSoundClips;
     private void Awake()
     {
        // ToggleIndicator(false);
@@ -46,6 +47,10 @@ public class Dialogues : MonoBehaviour
     {
         //start index at zero
         index = i;
+        //inicia o audio do dialogo caso não seja vazio, ou nulo, ou caso possua um numero incorreto de dialogos
+        if(dialogSoundClips.Length != 0 && dialogSoundClips[i] != null && dialogSoundClips != null){
+            AudioManager.instance.PlaySoundFXClips(dialogSoundClips,transform,1f,i);
+        }
         //Reset the character index
         charIndex = 0;
         //clear the dialogue component text
@@ -70,7 +75,6 @@ public class Dialogues : MonoBehaviour
     IEnumerator Writing()
     {
         yield return new WaitForSeconds(writingSpeed);
-
         string currentDialogue = dialogues[index];
         //Write the character
         dialogueText.text += currentDialogue[charIndex];
