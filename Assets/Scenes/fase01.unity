@@ -18489,9 +18489,9 @@ MonoBehaviour:
   - Me ajude a preparar seu lanche.
   - "Complete a pr\xF3xima atividade."
   dialogSoundClips:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: c3413901086bcb148b8d31190a16f098, type: 3}
+  - {fileID: 8300000, guid: f7553687c68cd424ab50f9b4f0b6478b, type: 3}
+  - {fileID: 8300000, guid: 97a4c52c0f13b964fa1258a6e86a7aa9, type: 3}
 --- !u!1001 &505819627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36760,7 +36760,10 @@ MonoBehaviour:
   - "Eai? J\xE1 pegou seu material?"
   - "Voc\xEA precisa disso para irmos para a escola."
   - "Complete a pr\xF3xima atividade e podemos ir."
-  dialogSoundClips: []
+  dialogSoundClips:
+  - {fileID: 8300000, guid: 7e75aa8f488cb374b92e6cd9b1985a51, type: 3}
+  - {fileID: 8300000, guid: ada5be09eb164b44d99d6b029c9bb98b, type: 3}
+  - {fileID: 8300000, guid: e4aa66b9fddb9d44c836406c46fa91fe, type: 3}
 --- !u!1001 &957404340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75423,17 +75426,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128523823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2064814613}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: 400}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -50, y: -50}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 1, y: 0.5}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &2128523826
 MonoBehaviour:
   m_ObjectHideFlags: 0

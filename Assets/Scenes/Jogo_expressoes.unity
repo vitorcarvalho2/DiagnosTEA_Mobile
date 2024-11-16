@@ -2681,8 +2681,8 @@ MonoBehaviour:
     - ALEGRE
     - MEDO
     - DUVIDA
-  - Question: "Gabriel fez um desenho incrivel e tirou a nota m\xE1xima na tarefa
-      de casa. Como ele se sentiu ao ver a nota da professora?"
+  - Question: "Voc\xEA fez um desenho incr\xEDvel e tirou a nota m\xE1xima na tarefa
+      de casa. Como voc\xEA se sentiu ao ver a nota que a professora te deu?"
     Answers:
     - TRISTE
     - ALEGRE
@@ -2695,14 +2695,14 @@ MonoBehaviour:
     - ALEGRE
     - MEDO
     - DUVIDA
-  - Question: "Em um dia andando em sua casa, gabriel que n\xE3o gosta de insetos
-      viu uma barata em seu quarto e saiu correndo, com que sentimento ele ficou?"
+  - Question: "Em um dia andando em sua casa, Maria que n\xE3o gosta de insetos viu
+      uma barata em seu quarto e saiu correndo, com que sentimento ela ficou?"
     Answers:
     - TRISTE
     - ALEGRE
     - MEDO
     - DUVIDA
-  - Question: "Gabriel estava em uma sala cheia de pessoas e o barulho era muito
+  - Question: "Gustavo estava em uma sala cheia de pessoas e o barulho era muito
       alto. Ele n\xE3o conseguia encontrar seus pais. Como voc\xEA acha que ele se
       sentiu? "
     Answers:
@@ -2710,14 +2710,15 @@ MonoBehaviour:
     - ALEGRE
     - MEDO
     - DUVIDA
-  - Question: "Gabriel estava fazendo a li\xE7\xE3o de matem\xE1tica, mas n\xE3o
-      sabia se a resposta estava certa. Como voc\xEA acha que Gabriel se sentiu?"
+  - Question: "Jasmim estava fazendo a li\xE7\xE3o de matem\xE1tica, mas n\xE3o sabia
+      se a resposta estava certa. Como voc\xEA acha que Jasmim se sentiu?"
     Answers:
     - TRISTE
     - ALEGRE
     - MEDO
     - DUVIDA
-  - Question: Voce bateu em seu amigo, como acha que ele se sentiu?
+  - Question: Marcelo estava no parquinho e bateu em seu amigo, como acha que o amigo
+      se sentiu?
     Answers:
     - TRISTE
     - ALEGRE
