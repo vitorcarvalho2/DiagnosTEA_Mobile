@@ -18,23 +18,25 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     public SceneInfo sceneInfo;
 
-    public Button voltaJogo;
+    public Button fimJogo, repetirAudioBt;
 
     public TextMeshProUGUI tempo;
     float elapsedTime;
     public bool tempoBool = false;
 
-    [SerializeField] private GameObject audioManager,mixerManager;
+    [SerializeField] private GameObject audioManager, mixerManager;
 
     private void Start()
-    {   
+    {
         if (AudioManager.instance == null)
         {
             Instantiate(audioManager);
             Instantiate(mixerManager);
         }
-        voltaJogo.onClick = new Button.ButtonClickedEvent();
-        voltaJogo.onClick.AddListener(() => VoltaJogo());
+        repetirAudioBt.onClick = new Button.ButtonClickedEvent();
+        repetirAudioBt.onClick.AddListener(() => RepetirAudio());
+        fimJogo.onClick = new Button.ButtonClickedEvent();
+        fimJogo.onClick.AddListener(() => VoltaJogo());
         elapsedTime = 0f;
         tempoBool = true;
         totalQuestion = QnA.Count; // coloca a quantidade de perguntas
@@ -53,8 +55,8 @@ public class QuizManager : MonoBehaviour
     }
 
     public void NextQuestion()
-    {   
-        
+    {
+
         QnA.RemoveAt(currentQuestion);
         AudioManager.instance.StopSoundFXClips();
         GenerateQuestion();
@@ -81,23 +83,24 @@ public class QuizManager : MonoBehaviour
     //     AnswersScript answer = options[currentQuestion].GetComponent<AnswersScript>();
     // }
     void GenerateQuestion()
-{
-    if (QnA.Count > 0)
-    {   
-        QuestionTxt.text = QnA[currentQuestion].Question;
-        currentAudio= new AudioClip[] { QnA[currentQuestion].QuestionAudio };
-        if(currentAudio.Length != 0 && currentAudio[0] != null){
-
-            AudioManager.instance.PlaySoundFXClips(currentAudio, transform, 1f, 0);
-        }
-        SetAnswers(); // define as opções
-        AnswersScript answer = options[currentQuestion].GetComponent<AnswersScript>(); // pega o script das opções
-    }
-    else
     {
-        FimDeJogo();
+        if (QnA.Count > 0)
+        {
+            QuestionTxt.text = QnA[currentQuestion].Question;
+            currentAudio = new AudioClip[] { QnA[currentQuestion].QuestionAudio };
+            if (currentAudio.Length != 0 && currentAudio[0] != null)
+            {
+
+                AudioManager.instance.PlaySoundFXClips(currentAudio, transform, 1f, 0);
+            }
+            SetAnswers(); // define as opções
+            AnswersScript answer = options[currentQuestion].GetComponent<AnswersScript>(); // pega o script das opções
+        }
+        else
+        {
+            FimDeJogo();
+        }
     }
-}
 
     void SetAnswers()
     {
@@ -107,10 +110,11 @@ public class QuizManager : MonoBehaviour
             options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[currentQuestion].Answers[i];
 
             //if (QnA[currentQuestion].CorrectAnswer == i + 1){
-                //options[i].GetComponent<AnswersScript>().IsCorrect = true;
+            //options[i].GetComponent<AnswersScript>().IsCorrect = true;
             //}
         }
     }
+
 
 
     void VoltaJogo()
@@ -130,5 +134,11 @@ public class QuizManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         sceneInfo.tempoQuiz = tempo.text;
         EndPanel.SetActive(true);
+    }
+
+    public void RepetirAudio()
+    {
+        AudioManager.instance.StopSoundFXClips();
+        AudioManager.instance.PlaySoundFXClips(currentAudio, transform, 1f, 0);
     }
 }

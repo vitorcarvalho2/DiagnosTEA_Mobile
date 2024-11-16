@@ -6,8 +6,8 @@ public class cameraController : MonoBehaviour
 {
 
     public Transform player;
-    public Vector3 offSet;  
-   
+    public Vector3 offSet;
+
     void Start()
     {
         offSet = transform.position - player.position;
@@ -16,14 +16,16 @@ public class cameraController : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
-    private void LateUpdate() {
+    private void LateUpdate()
+    {
         transform.position = player.position + offSet;
     }
 
-    public void setPlayer() {
+    public void setPlayer()
+    {
         player = GameObject.Find(PlayerPrefs.GetString("charName")).transform.GetChild(0).transform;
     }
 }

@@ -20,17 +20,20 @@ public class abrirInventario : MonoBehaviour
     }
     void Update()
     {
-         if(Input.GetKeyDown(KeyCode.Escape)){
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             dialoguePanel.SetActive(false);
-         }
-    
+        }
+
     }
 
-    void painelInventario(){
+    void painelInventario()
+    {
         dialoguePanel.SetActive(true);
     }
 
-    void fecharInventario(){
+    void fecharInventario()
+    {
         dialoguePanel.SetActive(false);
 
     }

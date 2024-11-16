@@ -75,7 +75,7 @@ public class ChecarFimQC : MonoBehaviour
     private IEnumerator PainelFimDeJogo()
     {
         yield return new WaitForSeconds(2);
-        tempoBool = false; 
+        tempoBool = false;
         fimDeJogo.SetActive(true);
         sceneInfo.tempoQC = tempo.text;
     }

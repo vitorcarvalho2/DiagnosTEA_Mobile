@@ -119,16 +119,20 @@ public class GameController : MonoBehaviour, IDataPersistence
         }
         else if (!secondGuess)
         {
-            secondGuess = true;
-            secondGuessIndex = index;
+            //verificação se clicou na mesma peça duas vezes
+            if (index != firstGuessIndex)
+            {
+                secondGuess = true;
+                secondGuessIndex = index;
 
-            secondGuessPuzzle = gamePuzzles[secondGuessIndex].name;
+                secondGuessPuzzle = gamePuzzles[secondGuessIndex].name;
 
-            btns[secondGuessIndex].image.sprite = gamePuzzles[secondGuessIndex];
+                btns[secondGuessIndex].image.sprite = gamePuzzles[secondGuessIndex];
 
-            countGuesses++;
+                countGuesses++;
 
-            StartCoroutine(CheckIfThePuzzleMatch());
+                StartCoroutine(CheckIfThePuzzleMatch());
+            }
         }
     }
 
@@ -166,10 +170,10 @@ public class GameController : MonoBehaviour, IDataPersistence
         countCorrectGuesses++;
 
         if (countCorrectGuesses == gameGuesses)
-        {   
+        {
             tempoBool = false;
             sceneInfo.tempoMemo = tempoTexto.text;
-            
+
             movimentosFinal.text = "Movimentos: " + (qtdMovimento + 1);
             sceneInfo.movimentos = movimentosFinal.text;
             fimDeJogo.SetActive(true);

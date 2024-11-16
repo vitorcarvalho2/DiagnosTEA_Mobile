@@ -25,7 +25,7 @@ public class playerSelect : MonoBehaviour
     {
         Camera cameraCena = Camera.main;
         i = 0;
-        tempoBool= true;
+        tempoBool = true;
         next.onClick = new Button.ButtonClickedEvent();
         previous.onClick = new Button.ButtonClickedEvent();
         select.onClick = new Button.ButtonClickedEvent();
@@ -45,7 +45,7 @@ public class playerSelect : MonoBehaviour
             elapsedTime += Time.deltaTime;
             int min = Mathf.FloorToInt(elapsedTime / 60);
             int sec = Mathf.FloorToInt(elapsedTime % 60);
-            tempoTexto.text = string.Format("Tempo: {0:00}:{1:00}", min, sec);           
+            tempoTexto.text = string.Format("Tempo: {0:00}:{1:00}", min, sec);
         }
         if (!player)
         {
@@ -91,6 +91,6 @@ public class playerSelect : MonoBehaviour
     public void Home()
     {
         SceneManager.LoadScene("01_Menu");
-        
+
     }
 }

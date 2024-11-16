@@ -6,13 +6,10 @@ public class AnswersScript : MonoBehaviour
 {
     //public Boolean IsCorrect = false;
     public QuizManager quizManager;
-    private float answerStartTime;
-    public TextMeshProUGUI answerText; 
-
-
+    public TextMeshProUGUI answerText;
 
     public void Answers()
-    {   
+    {
         // if (IsCorrect)
         // {
         //     quizManager.Correct();

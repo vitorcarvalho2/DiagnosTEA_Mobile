@@ -10,10 +10,10 @@ public class GameControllerManager : MonoBehaviour
     public Image MochilaOff, LivroOff, LancheOff;
     public Button pauseButton;
     public GameObject painelPause;
-    [SerializeField] private GameObject audioManager,mixerManager;
+    [SerializeField] private GameObject audioManager, mixerManager;
     //no começo da cena fase 1 são verificadas as listas de objetos a serem destruidas 
     void Start()
-    {   
+    {
         pauseButton.onClick = new Button.ButtonClickedEvent();
         pauseButton.onClick.AddListener(() => Pause());
 

@@ -32,7 +32,7 @@ public class boxMinigameMemo : MonoBehaviour
         {
             painel.SetActive(true);
             //sceneInfo.position = col.transform.position;
-            sceneInfo.position = new Vector3(0f, 3f, 2.3f);  
+            sceneInfo.position = new Vector3(0f, 3f, 2.3f);
 
         }
     }
@@ -42,7 +42,7 @@ public class boxMinigameMemo : MonoBehaviour
         sceneInfo.destroyedObjects.Add("Mochila");//objeto para iniciar minigame
         sceneInfo.destroyedDialogs.Add("DialogAreaMae"); // dialogo automatico ao entrar no ambiente
         sceneInfo.disabledImages.Add("MochilaOff"); //imagem cinza do item no painel
-        
+
         SceneManager.LoadScene("Jogo_da_Memoria");
 
     }

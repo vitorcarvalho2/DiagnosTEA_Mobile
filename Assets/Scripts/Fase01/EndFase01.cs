@@ -18,7 +18,7 @@ public class EndFase01 : MonoBehaviour
     IEnumerator EndFase()
     {
         yield return new WaitForSeconds(0.1f);
-        SceneManager.LoadScene("Fim");        
+        SceneManager.LoadScene("Fim");
     }
 }
 

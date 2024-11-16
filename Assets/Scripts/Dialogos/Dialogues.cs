@@ -15,10 +15,10 @@ public class Dialogues : MonoBehaviour
     private bool started;
     private bool waitForNext;
     [SerializeField] private AudioClip[] dialogSoundClips;
-    
+
     private void Awake()
     {
-       // ToggleIndicator(false);
+        // ToggleIndicator(false);
         ToggleWindow(false);
     }
 
@@ -48,8 +48,9 @@ public class Dialogues : MonoBehaviour
         //start index at zero
         index = i;
         //inicia o audio do dialogo caso não seja vazio, ou nulo, ou caso possua um numero incorreto de dialogos
-        if(dialogSoundClips.Length != 0 && dialogSoundClips[i] != null && dialogSoundClips != null){
-            AudioManager.instance.PlaySoundFXClips(dialogSoundClips,transform,1f,i);
+        if (dialogSoundClips.Length != 0 && dialogSoundClips[i] != null && dialogSoundClips != null)
+        {
+            AudioManager.instance.PlaySoundFXClips(dialogSoundClips, transform, 1f, i);
         }
         //Reset the character index
         charIndex = 0;
@@ -69,7 +70,7 @@ public class Dialogues : MonoBehaviour
         //Stop all Ienumerators
         StopAllCoroutines();
         //Hide the window
-        ToggleWindow(false);        
+        ToggleWindow(false);
     }
     //Writing logic
     IEnumerator Writing()
@@ -81,7 +82,7 @@ public class Dialogues : MonoBehaviour
         //increase the character index 
         charIndex++;
         //Make sure you have reached the end of the sentence
-        if(charIndex < currentDialogue.Length)
+        if (charIndex < currentDialogue.Length)
         {
             //Wait x seconds 
             yield return new WaitForSeconds(writingSpeed);
@@ -92,7 +93,7 @@ public class Dialogues : MonoBehaviour
         {
             //End this sentence and wait for the next one
             waitForNext = true;
-        }        
+        }
     }
 
     private void Update()
@@ -100,13 +101,13 @@ public class Dialogues : MonoBehaviour
         if (!started)
             return;
 
-        if(waitForNext && (Input.GetKeyDown(KeyCode.B) || Input.GetMouseButton(0)))
+        if (waitForNext && (Input.GetKeyDown(KeyCode.B) || Input.GetMouseButton(0)))
         {
             waitForNext = false;
             index++;
 
             //Check if we are in the scope fo dialogues List
-            if(index < dialogues.Count)
+            if (index < dialogues.Count)
             {
                 //If so fetch the next dialogue
                 GetDialogue(index);
@@ -116,7 +117,7 @@ public class Dialogues : MonoBehaviour
                 //If not end the dialogue process
                 //ToggleIndicator(true);
                 EndDialogue();
-            }            
+            }
         }
     }
 

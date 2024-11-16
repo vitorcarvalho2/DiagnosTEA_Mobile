@@ -68,7 +68,7 @@ public class PainelPause : MonoBehaviour
         painel.SetActive(false);
     }
 
-     public void Volume()
+    public void Volume()
     {
         VolumePanel.SetActive(true);
     }

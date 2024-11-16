@@ -13,24 +13,27 @@ public class SoundMixermanager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);  
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject);  
+            Destroy(gameObject);
         }
     }
 
 
-    public void SetMasterVolume(float volume){
+    public void SetMasterVolume(float volume)
+    {
         audioMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20f);
     }
 
-    public void SetMusicVolume(float volume){
+    public void SetMusicVolume(float volume)
+    {
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20f);
     }
 
-    public void SetSFXVolume(float volume){
+    public void SetSFXVolume(float volume)
+    {
         audioMixer.SetFloat("FxVolume", Mathf.Log10(volume) * 20f);
     }
 }

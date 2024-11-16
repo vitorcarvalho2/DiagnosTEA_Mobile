@@ -33,26 +33,26 @@ public class PainelFim : MonoBehaviour
 #endif
     }
 
-void Info()
-{   
-    
-    // Monta a string final, incluindo as respostas formatadas
-    string aux = "<b>Jogo da Memoria</b>\n" 
-        + sceneInfo.tempoMemo + " \n" 
-        + sceneInfo.movimentos + " \n"
+    void Info()
+    {
 
-        + "<b>Quebra Cabeça</b>\n" 
-        + sceneInfo.tempoQC + "\n"
+        // Monta a string final, incluindo as respostas formatadas
+        string aux = "<b>Jogo da Memoria</b>\n"
+            + sceneInfo.tempoMemo + " \n"
+            + sceneInfo.movimentos + " \n"
 
-        + "<b>Quiz</b>\n" 
-        + sceneInfo.tempoQuiz + "\n" 
-        + "Respostas:\n " + string.Join(", ", sceneInfo.respostasQuiz) + "\n"
+            + "<b>Quebra Cabeça</b>\n"
+            + sceneInfo.tempoQC + "\n"
 
-        + "<b>Personagens:</b>\n" 
-        + sceneInfo.tempoPersonagens;
+            + "<b>Quiz</b>\n"
+            + sceneInfo.tempoQuiz + "\n"
+            + "Respostas:\n " + string.Join(", ", sceneInfo.respostasQuiz) + "\n"
 
-    info.text = aux;
-}
+            + "<b>Personagens:</b>\n"
+            + sceneInfo.tempoPersonagens;
+
+        info.text = aux;
+    }
 
 
     void Dados()

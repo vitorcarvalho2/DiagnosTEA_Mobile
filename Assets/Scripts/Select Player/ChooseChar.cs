@@ -14,7 +14,7 @@ public class ChooseChar : MonoBehaviour
     void Start()
     {
         StartCoroutine(SetPlayer());
-        
+
     }
 
     IEnumerator SetPlayer()

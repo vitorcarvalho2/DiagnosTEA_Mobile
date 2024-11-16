@@ -5,17 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-   public void PlayGame (){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-   }
+     public void PlayGame()
+     {
+          SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+     }
 
-   public void QuitGame (){
-        Debug.Log("SAIU");
-        Application.Quit();
-   }
+     public void QuitGame()
+     {
+          Debug.Log("SAIU");
+          Application.Quit();
+     }
 
-   void StartJogo(){
-       SceneManager.LoadScene("Jogo_da_Memoria");     
+     void StartJogo()
+     {
+          SceneManager.LoadScene("Jogo_da_Memoria");
      }
 
 }
