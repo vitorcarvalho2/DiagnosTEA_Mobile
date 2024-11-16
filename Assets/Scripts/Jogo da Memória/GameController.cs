@@ -69,7 +69,7 @@ public class GameController : MonoBehaviour, IDataPersistence
             elapsedTime += Time.deltaTime;
             int min = Mathf.FloorToInt(elapsedTime / 60);
             int sec = Mathf.FloorToInt(elapsedTime % 60);
-            tempoTexto.text = string.Format("Tempo: {0:00}:{1:00}", min, sec);           
+            tempoTexto.text = string.Format("Tempo: {0:00}:{1:00}", min, sec);
         }
 
     }

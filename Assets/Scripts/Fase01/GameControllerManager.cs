@@ -2,17 +2,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DestroyedObjects : MonoBehaviour
+public class GameControllerManager : MonoBehaviour
 {
 
     [SerializeField]
     public SceneInfo sceneInfo;
     public Image MochilaOff, LivroOff, LancheOff;
+    public Button pauseButton;
+    public GameObject painelPause;
     [SerializeField] private GameObject audioManager,mixerManager;
     //no começo da cena fase 1 são verificadas as listas de objetos a serem destruidas 
     void Start()
     {   
-       
+        pauseButton.onClick = new Button.ButtonClickedEvent();
+        pauseButton.onClick.AddListener(() => Pause());
+
         if (AudioManager.instance == null)
         {
             Instantiate(audioManager);
@@ -48,5 +52,10 @@ public class DestroyedObjects : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Pause()
+    {
+        painelPause.SetActive(true);
     }
 }

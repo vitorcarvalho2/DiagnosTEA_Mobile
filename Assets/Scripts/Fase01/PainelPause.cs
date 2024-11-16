@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class PainelPause : MonoBehaviour
 {
-    public Button voltar, home;
+    public Button voltar, home, som;
     public GameObject painel;
+    public GameObject VolumePanel;
     private ChecarFimQC checarFimQC;
     private GameController gameController;
     private QuizManager quizManager;
@@ -15,9 +16,11 @@ public class PainelPause : MonoBehaviour
     {
         voltar.onClick = new Button.ButtonClickedEvent();
         home.onClick = new Button.ButtonClickedEvent();
+        som.onClick = new Button.ButtonClickedEvent();
 
         voltar.onClick.AddListener(() => BackToGame());
         home.onClick.AddListener(() => Home());
+        som.onClick.AddListener(() => Volume());
 
         checarFimQC = FindObjectOfType<ChecarFimQC>();
         gameController = FindObjectOfType<GameController>();
@@ -63,5 +66,10 @@ public class PainelPause : MonoBehaviour
             quizManager.tempoBool = true;
         }
         painel.SetActive(false);
+    }
+
+     public void Volume()
+    {
+        VolumePanel.SetActive(true);
     }
 }

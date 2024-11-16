@@ -10,6 +10,7 @@ public class QuizManager : MonoBehaviour
 {
     public List<QuestionsandAnwers> QnA;//lista de perguntas
     public GameObject[] options; // array de opções de resposta
+    public AudioClip[] currentAudio;
     public TextMeshProUGUI QuestionTxt; // texto da pergunta
     public GameObject QuizPanel, EndPanel; // painel principal e painel final
     public int currentQuestion; // pergunta atual
@@ -23,8 +24,15 @@ public class QuizManager : MonoBehaviour
     float elapsedTime;
     public bool tempoBool = false;
 
+    [SerializeField] private GameObject audioManager,mixerManager;
+
     private void Start()
-    {
+    {   
+        if (AudioManager.instance == null)
+        {
+            Instantiate(audioManager);
+            Instantiate(mixerManager);
+        }
         voltaJogo.onClick = new Button.ButtonClickedEvent();
         voltaJogo.onClick.AddListener(() => VoltaJogo());
         elapsedTime = 0f;
@@ -46,7 +54,9 @@ public class QuizManager : MonoBehaviour
 
     public void NextQuestion()
     {   
+        
         QnA.RemoveAt(currentQuestion);
+        AudioManager.instance.StopSoundFXClips();
         GenerateQuestion();
         AnswersScript answer = options[currentQuestion].GetComponent<AnswersScript>();
     }
@@ -75,6 +85,11 @@ public class QuizManager : MonoBehaviour
     if (QnA.Count > 0)
     {   
         QuestionTxt.text = QnA[currentQuestion].Question;
+        currentAudio= new AudioClip[] { QnA[currentQuestion].QuestionAudio };
+        if(currentAudio.Length != 0 && currentAudio[0] != null){
+
+            AudioManager.instance.PlaySoundFXClips(currentAudio, transform, 1f, 0);
+        }
         SetAnswers(); // define as opções
         AnswersScript answer = options[currentQuestion].GetComponent<AnswersScript>(); // pega o script das opções
     }

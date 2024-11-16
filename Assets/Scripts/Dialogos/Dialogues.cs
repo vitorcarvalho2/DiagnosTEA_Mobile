@@ -14,8 +14,8 @@ public class Dialogues : MonoBehaviour
     private int charIndex;
     private bool started;
     private bool waitForNext;
-
     [SerializeField] private AudioClip[] dialogSoundClips;
+    
     private void Awake()
     {
        // ToggleIndicator(false);

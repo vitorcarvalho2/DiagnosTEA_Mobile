@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
- 
+
 public class AudioManager : MonoBehaviour
 {
 
@@ -27,15 +27,19 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySoundFXClips(AudioClip[] audioClips, Transform spawnTransform, float volume,int clipIndex)
-{
+    public void PlaySoundFXClips(AudioClip[] audioClips, Transform spawnTransform, float volume, int clipIndex)
+    {
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
-        
         audioSource.clip = audioClips[clipIndex];
         audioSource.volume = volume;
         audioSource.Play();
         float clipLength = audioSource.clip.length;
 
         Destroy(audioSource.gameObject, clipLength);
-}
+    }
+
+    public void StopSoundFXClips()
+    {
+        Destroy(FindObjectOfType<AudioSource>());
+    }
 }

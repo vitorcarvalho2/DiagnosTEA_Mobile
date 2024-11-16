@@ -31,7 +31,8 @@ public class boxMinigameMemo : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             painel.SetActive(true);
-            sceneInfo.position = col.transform.position;
+            //sceneInfo.position = col.transform.position;
+            sceneInfo.position = new Vector3(0f, 3f, 2.3f);  
 
         }
     }

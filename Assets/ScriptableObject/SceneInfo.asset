@@ -12,20 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffcc7a5159b0f2b48a4b83f66ffb4433, type: 3}
   m_Name: SceneInfo
   m_EditorClassIdentifier: 
-  position: {x: -7.67, y: 3.44, z: 0.5}
+  position: {x: 0, y: -2.1, z: 2.3}
   playerName: Personagens/mulher01
-  destroyedObjects: []
-  destroyedDialogs: []
-  disabledImages: []
-  respostasQuiz:
-  - a
-  - a
-  - a
-  - a
-  - a
-  - a
-  tempoQC: aaa
-  tempoMemo: aaa
-  movimentos: aaa
-  tempoQuiz: aaa
-  tempoPersonagens: aaa
+  destroyedObjects:
+  - Mochila
+  destroyedDialogs:
+  - DialogAreaMae
+  disabledImages:
+  - MochilaOff
+  respostasQuiz: []
+  tempoQC: 
+  tempoMemo: 'Tempo: 00:28'
+  movimentos: 'Movimentos: 12'
+  tempoQuiz: 
+  tempoPersonagens: 'Tempo: 00:01'
