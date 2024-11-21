@@ -44,7 +44,7 @@ public class PainelFim : MonoBehaviour
             + "<b>Quebra Cabeça</b>\n"
             + sceneInfo.tempoQC + "\n"
 
-            + "<b>Quiz</b>\n"
+            + "<b>Jogo das Expressões</b>\n"
             + sceneInfo.tempoQuiz + "\n"
             + "Respostas:\n " + string.Join(", ", sceneInfo.respostasQuiz) + "\n"
 
